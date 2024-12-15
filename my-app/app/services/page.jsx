@@ -6,33 +6,33 @@ import Link from "next/link"
 import { Description } from "@radix-ui/react-dialog";
 
 
-const services =[
+const services = [
   {
-    num:"01",
-    title :"Web devlopment $ data scientist",
-    description:"in this project i will make a solutrion for detection and segmentation for a glaucoma phatolgie",
-    href:"link"
+    num: "01",
+    title: "Web Development",
+    description: "Development of responsive and modern websites tailored to client needs, using the latest web technologies and frameworks.",
+    href: "link",
   },
   {
-    num:"01",
-    title :"Web devlopment $ data scientist",
-    description:"in this project i will make a solutrion for detection and segmentation for a glaucoma phatolgie",
-    href:"link",
+    num: "02",
+    title: "Data Scientist",
+    description: "Analysis and processing of large datasets to extract insights and build predictive models for data-driven decision-making.",
+    href: "link",
   },
   {
-    num:"02",
-    title :" data scientist",
-    description:"in this project i will make a solutrion for detection and segmentation for a glaucoma phatolgie",
-    href:"link"
+    num: "03",
+    title: "Web Scraping",
+    description: "Automated extraction of relevant data from websites for analysis or integration into applications.",
+    href: "link",
   },
   {
-    num:"03",
-    title :"Web devlopment $ data scientist",
-    description:"in this project i will make a solutrion for detection and segmentation for a glaucoma phatolgie",
-    href:"link"
+    num: "04",
+    title: "Data Visualization",
+    description: "Creation of interactive and visually appealing dashboards and charts to effectively communicate data insights.",
+    href: "link",
   },
-  
 ];
+
 
 
 const Services = () => {
