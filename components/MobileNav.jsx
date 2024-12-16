@@ -4,7 +4,6 @@ import {Sheet, SheetContent,SheetTrigger,sheetTrigger} from '@/components/ui/she
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
 import {CiMenuFries} from 'react-icons/ci';
-import { capitalize } from '@material-ui/core';
 
 
 const links=[
