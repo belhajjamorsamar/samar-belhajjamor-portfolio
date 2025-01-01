@@ -4,8 +4,6 @@ import {Sheet, SheetContent,SheetTrigger,sheetTrigger} from '@/components/ui/she
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
 import {CiMenuFries} from 'react-icons/ci';
-
-
 const links=[
     {
     name:'Home',
@@ -23,9 +21,6 @@ const links=[
      name:'Contact',
      path: '/contact'},
 ]
-
-
-
 const MobileNav = () => {
     const pathname = usePathname();
   return( <Sheet>
