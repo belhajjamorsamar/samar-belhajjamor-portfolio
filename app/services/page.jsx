@@ -19,17 +19,13 @@ const services = [
     description: "Analysis and processing of large datasets to extract insights and build predictive models for data-driven decision-making.",
     href: "link",
   },
+ 
   {
-    num: "03",
-    title: "Web Scraping",
-    description: "Automated extraction of relevant data from websites for analysis or integration into applications.",
+   num: "03",
+    title: "Data Visualization with Power BI",
+    description: "Creating interactive dashboards and reports with Power BI to transform raw data into actionable insights through dynamic visualizations.",
     href: "link",
-  },
-  {
-    num: "04",
-    title: "Data Visualization",
-    description: "Creation of interactive and visually appealing dashboards and charts to effectively communicate data insights.",
-    href: "link",
+
   },
 ];
 

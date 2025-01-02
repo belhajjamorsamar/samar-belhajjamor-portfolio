@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import 'swiper/css';
 import { BsArrowUpRight, BsGithub, BsPlayFill, BsPauseFill, BsVolumeMute, BsVolumeUp, BsFullscreen } from 'react-icons/bs';
 import Link from 'next/link';
@@ -12,37 +12,35 @@ const projects = [
     num: "01",
     category: "Front End",
     title: "Design and Development of a Website for MSG",
-    description: "I created a website for MSG, an online store specializing in selling fish, vegetables, and fruits. The project includes both a front-end for customers and a back-end for administration. Technologies used include ReactJS, Tailwind CSS, Node.js, TypeScript, and PostgreSQL.",
-    date: "2024-11-01",
+    description: "I created a website for MSG, an online store specializing in selling fish, vegetables, and fruits. The project includes both a front-end for customers and a back-end for administration.",
+    date: "2023-07",
     stack: [
       { name: "ReactJS" },
       { name: "Tailwind CSS" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "PostgreSQL" },
+      { name: "Express.js" },
+     
     ],
     video: "/assets/work/video1.mp4",
-    live: "https://livepreview.com/project1",
-    github: "https://github.com/project1",
+    github: "https://github.com/belhajjamorsamar/Sea-Gourmet",
   },
   {
     num: "02",
-    category: "Frontend",
-    title: "DICOM Viewer",
+    category: "fullstack",
+    title: "Développement d'une application web d'aide au diagnostic avec IA",
     description: "This diagnostic assistance application includes a DICOM Viewer to display medical images and an interface for glaucoma detection, an eye disease, by analyzing fundus images using deep learning techniques. It enables healthcare professionals to quickly diagnose glaucoma from DICOM images. DICOM is a standard for storing and exchanging medical images, including clinical metadata.",
-    date: "2023-10-06",
+    date: "2023-01-02",
     stack: [
       { name: "React.js" },
+      { name: "MatrielUi" },
+      { name: "CSS3" },
       { name: "Axios" },
       { name: "Flask" },
       { name: "Python" },
       { name: "PyTorch" },
       { name: "OpenCV" },
-      { name: "CSS3" },
-      { name: "JavaScript" },
+      {name:  "SQLiteStudio"},
     ],
     video: "/assets/work/PFE.mp4",
-    live: "https://livepreview.com/project2",
     github: "https://github.com/project2",
   },
   {
@@ -53,13 +51,13 @@ const projects = [
     date: "2023-10-06",
     stack: [
       { name: "Laravel" },
+      { name: "Laravel" },
       { name: "HTML" },
       { name: "CSS3" },
       { name: "MySQL" },
       { name: "JavaScript" },
     ],
-    video: "/assets/work/PFE.mp4",
-    live: "https://livepreview.com/project2",
+    video: "/assets/work/MolkaDelevery.mp4",
     github: "https://github.com/project2",
   },
   {
@@ -73,8 +71,7 @@ const projects = [
       { name: "CSS3" },
       { name: "JavaScript" },
     ],
-    video: "/assets/work/CrudJS.mp4",
-    live: "https://livepreview.com/CrudJS",
+    video: "/assets/work/Crudjs.mp4",
     github: "https://github.com/your-repo/crud-js",
   },
   {
@@ -89,21 +86,30 @@ const projects = [
       { name: "CSS3" },
     ],
     video: "/assets/work/book.mp4",
-    live: "https://livepreview.com/BookStore",
     github: "https://github.com/your-repo/book-store",
   },
 ];
-
 const Work = () => {
   const [currentProject, setCurrentProject] = useState(projects[0]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(1); // Valeur initiale du volume
   const videoRefs = useRef([]);
 
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.activeIndex;
     setCurrentProject(projects[currentIndex]);
+
+    // Réinitialisation des vidéos
+    videoRefs.current.forEach((video, index) => {
+      if (index !== currentIndex) {
+        video.muted = true;
+        video.currentTime = 0; // Réinitialiser la vidéo au début
+        video.pause();
+        setIsPlaying(false);
+      }
+    });
   };
 
   const togglePlayPause = (index) => {
@@ -127,14 +133,6 @@ const Work = () => {
     }
   };
 
-  const handleProgress = (index) => {
-    const video = videoRefs.current[index];
-    if (video) {
-      const progressValue = (video.currentTime / video.duration) * 100;
-      setProgress(progressValue);
-    }
-  };
-
   const handleFullScreen = (index) => {
     const video = videoRefs.current[index];
     if (video) {
@@ -144,15 +142,46 @@ const Work = () => {
     }
   };
 
+  const handleVolumeChange = (e) => {
+    const volumeValue = e.target.value;
+    setVolume(volumeValue);
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        video.volume = volumeValue;
+      }
+    });
+  };
+
+  useEffect(() => {
+    const updateProgress = () => {
+      if (videoRefs.current[projects.indexOf(currentProject)]) {
+        const video = videoRefs.current[projects.indexOf(currentProject)];
+        const progressValue = (video.currentTime / video.duration) * 100;
+        setProgress(progressValue);
+      }
+    };
+
+    const video = videoRefs.current[projects.indexOf(currentProject)];
+    if (video) {
+      video.addEventListener('timeupdate', updateProgress);
+    }
+
+    return () => {
+      if (video) {
+        video.removeEventListener('timeupdate', updateProgress);
+      }
+    };
+  }, [currentProject]);
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 0.4, duration: 0.4, ease: "easeIn" }}}
+      animate={{ opacity: 1, transition: { delay: 0.4, duration: 0.4, ease: 'easeIn' }}}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          {/* Project details */}
+          {/* Project details - moved above the video */}
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between">
             <div className="flex flex-col gap-[15px] h-[50%]">
               <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
@@ -167,18 +196,13 @@ const Work = () => {
                 {currentProject.stack.map((item, index) => (
                   <li key={index} className="text-xl text-accent">
                     {item.name}
-                    {index !== currentProject.stack.length - 1 && ","}
+                    {index !== currentProject.stack.length - 1 && ','}
                   </li>
                 ))}
               </ul>
               <div className="border border-white/20"></div>
               <div className="flex items-center gap-4">
-                <Link href={currentProject.live}>
-                  <button className="flex items-center gap-2 px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600">
-                    <BsArrowUpRight size={20} />
-                    Live Preview
-                  </button>
-                </Link>
+               
                 <Link href={currentProject.github}>
                   <button className="flex items-center gap-2 px-4 py-2 text-white bg-gray-800 rounded-lg hover:bg-gray-700">
                     <BsGithub size={20} />
@@ -188,7 +212,8 @@ const Work = () => {
               </div>
             </div>
           </div>
-          {/* Video slider */}
+
+          {/* Video slider - now below project details */}
           <div className="w-full xl:w-[50%]">
             <Swiper spaceBetween={30} slidesPerView={1} onSlideChange={handleSlideChange}>
               {projects.map((project, index) => (
@@ -200,36 +225,34 @@ const Work = () => {
                         src={project.video}
                         className="object-cover w-full h-full"
                         ref={(el) => (videoRefs.current[index] = el)}
-                        onTimeUpdate={() => handleProgress(index)}
                         loop
+                        muted={isMuted}
                       />
-                      {/* Play/Pause */}
-                      <div
-                        className="absolute z-20 flex items-center justify-center w-16 h-16 text-white bg-black bg-opacity-50 rounded-full cursor-pointer top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                        onClick={() => togglePlayPause(index)}
-                      >
-                        {isPlaying ? <BsPauseFill size={30} /> : <BsPlayFill size={30} />}
-                      </div>
-                      {/* Mute/Unmute */}
-                      <div
-                        className="absolute z-20 flex items-center justify-center w-10 h-10 text-white bg-black bg-opacity-50 rounded-full cursor-pointer bottom-16 left-4"
-                        onClick={() => toggleMute(index)}
-                      >
-                        {isMuted ? <BsVolumeMute size={20} /> : <BsVolumeUp size={20} />}
-                      </div>
-                      {/* Fullscreen */}
-                      <div
-                        className="absolute z-20 flex items-center justify-center w-10 h-10 text-white bg-black bg-opacity-50 rounded-full cursor-pointer bottom-16 right-4"
-                        onClick={() => handleFullScreen(index)}
-                      >
-                        <BsFullscreen size={20} />
-                      </div>
-                      {/* Progress Bar */}
-                      <div className="absolute bottom-4 left-4 right-4 h-1 bg-gray-700 rounded-full">
+                      {/* Video controls */}
+                      <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between w-full px-4">
+                        {/* Play/Pause Button */}
                         <div
-                          className="h-full bg-accent rounded-full"
-                          style={{ width: `${progress}%` }}
-                        ></div>
+                          className="flex items-center justify-center w-12 h-12 text-white bg-black bg-opacity-50 rounded-full cursor-pointer"
+                          onClick={() => togglePlayPause(index)}
+                        >
+                          {isPlaying ? <BsPauseFill size={30} /> : <BsPlayFill size={30} />}
+                        </div>
+
+                        {/* Mute Button */}
+                        <div
+                          className="flex items-center justify-center w-10 h-10 text-white bg-black bg-opacity-50 rounded-full cursor-pointer"
+                          onClick={() => toggleMute(index)}
+                        >
+                          {isMuted ? <BsVolumeMute size={20} /> : <BsVolumeUp size={20} />}
+                        </div>
+
+                        {/* Fullscreen Button */}
+                        <div
+                          className="flex items-center justify-center w-10 h-10 text-white bg-black bg-opacity-50 rounded-full cursor-pointer"
+                          onClick={() => handleFullScreen(index)}
+                        >
+                          <BsFullscreen size={20} />
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -13,10 +13,10 @@ const Home = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           {/* text */}
           <div className='text-center xl:text-left order-2 xl:order-none'>
-            <span className='text-3xl'>Web developer & Data science student</span>
+            <span className='text-3xl'>Full-Stack Developer & Data Scientist </span>
             <h1 className='h1 mb-6'>Hello I&apos;m <br /> <span className='text-accent'>Samar BelHadj Amor</span></h1>
             <p className='max-w-[700px] mb-9 text-white/80'>
-            I am a passionate full-stack developer with expertise in Laravel and React, focused on building user-centered, innovative digital solutions. Driven by a love for technology and continuous learning, I quickly adapt to new challenges and deliver high-performance, scalable applications.
+              I am a passionate full-stack developer with expertise in Laravel and React, focused on building user-centered, innovative digital solutions. Driven by a love for technology and continuous learning, I quickly adapt to new challenges and deliver high-performance, scalable applications.
             </p>
             {/* btn and socials */}
             <div className='flex flex-col xl:flex-row items-center gap-8'>
