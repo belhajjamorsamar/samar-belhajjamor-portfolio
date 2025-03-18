@@ -226,7 +226,7 @@ const Resume = () => {
       opacity: 1,
       transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
     }}
-   className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0">
+   className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0 mt-[70px]">
     <div className="container mx-auto">
      <Tabs 
       defaultValue="experience"

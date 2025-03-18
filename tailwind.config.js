@@ -14,19 +14,19 @@ module.exports = {
     },
     screens: {
       sm: '640px',
-      md: '780px',
+      md: '768px',
       lg: '960px',
       xl: '1200px'
     },
     fontFamily: {
-      primary: "var(--font-jetBrainsMono)",
+      primary: "var(--font-jetbrainsMono)",
     },
     extend: {
       colors: {
         primary: "#1c1c22",
         accent: {
-          DEFAULT: "#00ff99", // Changer la couleur d'accent par défaut en #FFC0CB
-          hover: "#00E187", // Optionnel : couleur d'accent au survol
+          DEFAULT: "#00ff99", 
+          hover: "#00E187", 
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

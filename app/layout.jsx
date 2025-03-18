@@ -6,25 +6,24 @@ import { Variable, Weight } from "lucide-react";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
-const jetBrains_Mono = JetBrains_Mono({
+
+
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight:["100","200","300","400","500","600","700","800"],
   variable:'--font-jetbrainsMono'
   });
-
   export const metadata = {
     title: "Samar Bel Hajj Amor - Portfolio",
     description: "Explore the portfolio of Samar Bel Hajj Amor, a passionate Full-Stack Developer specializing in Next.js, Laravel, and Data Science.",
   };  
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={jetBrains_Mono.variable}>
+      <body className={jetbrainsMono.variable}>
       <Header/>
       <StairTransition/>
       <PageTransition> {children}</PageTransition>
-     
       </body>
     </html>
   );

@@ -19,7 +19,6 @@ const Photo = () => {
             opacity: 1,
             transition: { delay: 1.4, duration: 0.2, ease: "easeInOut" },
           }}
-          // Agrandir l'image sans toucher au cercle
           className="w-[250px] h-[250px] xl:w-[450px] xl:h-[450px] mix-blend-lighten absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         >
           <Image
