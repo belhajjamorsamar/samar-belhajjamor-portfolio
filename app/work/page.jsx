@@ -32,7 +32,7 @@ const projects = [
     num: "02",
     category: "Dicom viwer",
     title: "GlaucoScan",
-    description: "Collaborated with ISS4U to develop an innovative AI-powered application designed to assist radiologists in medical diagnosis. This application enables the reading of DICOM images, extraction, and display of key information. We designed and integrated two specialized deep learning models:A segmentation model that accurately identifies key structures in fundus images to facilitate and enhance the precision of detection. A glaucoma detection model based on deep learning and image analysis, optimized for early and reliable diagnosis.This application improves diagnostic accuracy and provides radiologists with advanced AI-driven support",
+    description: "Collaborated with ISS4U to develop an AI-powered application for radiologists, enabling DICOM image reading and key information extraction. Integrated two deep learning models: one for segmenting key structures in fundus images and another for early glaucoma detection. The application enhances diagnostic accuracy with AI-driven support.",
     date: "01/02/2023 au 31/05/2023",
     stack: [
       { name: "ReactJs" },
@@ -49,11 +49,28 @@ const projects = [
     github:  "/confidential",
   },
   {
-    num: "03",
+    "num": "03",
+    "category": "Frontend",
+    "title": "Molka Delivery",
+    "description": "Developed a solution for Molka Delivery in collaboration with a web design agency. The project includes a user-friendly front-office for seamless ordering and a back-office for managing orders, deliveries, and operations.",
+    "date": "2023-07-01",
+    "stack": [
+      { "name": "HTML5" },
+      { "name": "Bootstrap" },
+      { "name": "Laravel" },
+      { "name": "MySQL" }
+    ],
+    "image": "/assets/work/uppp.png",
+    "live": "https://molka-delivery.com/",
+    "github": "/confidential"
+}
+,
+  {
+    num: "04",
     category: "Frontend",
     title: "Projet 3",
     description: "fvgfgbfgb",
-    date: "2024-09-30", // Exemple de date
+    date: "2024-09-30",
     stack: [
       { name: "HTML5" },
       { name: "CSS3" },
@@ -64,7 +81,7 @@ const projects = [
     github: "",
   },
   {
-    num: "04",
+    num: "05",
     category: "Frontend",
     title: "Projet 3",
     description: "fvgfgbfgb",
@@ -80,7 +97,7 @@ const projects = [
   },
 
   {
-    num: "05",
+    num: "06",
     category: "Frontend",
     title: "Projet 3",
     description: "fvgfgbfgb",
@@ -95,23 +112,9 @@ const projects = [
     github: "",
   },
  
+  
   {
-    num: "06",
-    category: "Frontend",
-    title: "Projet 3",
-    description: "fvgfgbfgb",
-    date: "2024-09-30", // Exemple de date
-    stack: [
-      { name: "HTML5" },
-      { name: "CSS3" },
-      { name: "JavaScript" },
-    ],
-    image: '/assets/work/work1.PNG',
-    live: "",
-    github: "",
-  },
-  {
-    num: "07",
+    num: "08",
     category: "Frontend",
     title: "Projet 3",
     description: "fvgfgbfgb",
@@ -127,7 +130,7 @@ const projects = [
   },
   
   {
-    num: "07",
+    num: "09",
     category: "Frontend",
     title: "Projet 3",
     description: "fvgfgbfgb",
