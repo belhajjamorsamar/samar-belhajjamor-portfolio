@@ -1,13 +1,10 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '../components/ui/button'
 import { FiDownload } from 'react-icons/fi'
 
 // components
-import Social from '@/components/Socials'
-import Photo from '@/components/Photo'
-import Stats from '@/components/Stats'
-import Services from './services/page'
-import Resume from './resume/page'
-import Contact from './contact/page'
+import Social from '../components/Socials'
+import Photo from '../components/Photo'
+import Stats from '../components/Stats'
 
 const Home = () => {
   return (
@@ -18,13 +15,13 @@ const Home = () => {
           <div className='text-center xl:text-left order-2 xl:order-none'>
             <span className='text-xl '>Full-Stack Developer</span>
             <h1 className='h1 mb-6'>Hello I&apos;m <br /> <span className='text-accent'>Samar BelHadj Amor</span></h1>
-            <p className='max-w-[500px] mb-9 text-white/80'>
+            <p className='max-w-[500px] mb-9 text-[#dde2e8]'>
               I am a passionate full-stack developer with expertise in Laravel and React, focused on building user-centered, innovative digital solutions. Driven by a love for technology and continuous learning, I quickly adapt to new challenges and deliver high-performance, scalable applications.
             </p>
             {/* btn and socials */}
             <div className='flex flex-col xl:flex-row items-center gap-8'>
               <Button variant="outline" size="lg" className="uppercase flex items-center gap-2 py-3 px-6">
-                <a href="/assets/work/Developeuse_Samarbelhajjamor_resume.pdf" download className="flex items-center gap-2">
+                <a href="/assets/work/Resume_BEL HAJJ AMOR_Samar.pdf" download className="flex items-center gap-2">
                   <span>Download CV</span>
                   <FiDownload className='text-xl' />
                 </a>

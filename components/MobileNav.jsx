@@ -1,6 +1,6 @@
 "use client";
 
-import {Sheet, SheetContent,SheetTrigger,sheetTrigger} from '@/components/ui/sheet';
+import {Sheet, SheetContent,SheetTrigger,sheetTrigger} from '../components/ui/sheet';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
 import {CiMenuFries} from 'react-icons/ci';
@@ -8,9 +8,6 @@ const links=[
     {
     name:'Home',
     path: '/'},
-    {
-    name:'Services',
-    path: '/services'},
     {
      name:'Resume',
      path: '/resume'},

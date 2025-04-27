@@ -1,11 +1,11 @@
 import {JetBrains_Mono} from "next/font/google";
 import "./globals.css";
 import { Variable, Weight } from "lucide-react";
-
 // components
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+
 
 
 const jetbrainsMono = JetBrains_Mono({
@@ -21,9 +21,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={jetbrainsMono.variable}>
+      
       <Header/>
       <StairTransition/>
       <PageTransition> {children}</PageTransition>
+    
       </body>
     </html>
   );
